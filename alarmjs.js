@@ -6,26 +6,26 @@ const alarmSubmit = document.getElementById('alarmSubmit');
 alarmSubmit.addEventListener('click', setAlarm);
 
 // function to play the alarm ring tone
-var audio = new Audio(src="https://www.zapsplat.com/wp-content/uploads/2015/sound-effects-41945/zapsplat_emergency_alarm_small_siren_44509.mp3?_=1");
+var au = new Audio(src="https://www.zapsplat.com/wp-content/uploads/2015/sound-effects-41945/zapsplat_emergency_alarm_small_siren_44509.mp3?_=1");
 
 function ring() {
-    audio.play();
+    au.play();
 }
 // This function will run whenever alarm is set from the UI
 function setAlarm(e) {
     e.preventDefault();
     const alarm = document.getElementById('alarm');
-    alarmDate = new Date(alarm.value);
-    console.log(`Setting Alarm for ${alarmDate}...`);
+    alarmD = new Date(alarm.value);
+    console.log(`Setting Alarm for ${alarmD}`);
     now = new Date();
 
-    let timeAlarm = alarmDate - now;
-    console.log(timeAlarm);
+    let tAlarm = alarmD - now;
+    console.log(tAlarm);
 
-    if(timeAlarm>=0){
+    if(tAlarm>=0){
         setTimeout(() => {
-            console.log("Ringing now")
+            console.log("buzzing")
             ring();
-        }, timeAlarm);
+        }, tAlarm);
     }
 }
