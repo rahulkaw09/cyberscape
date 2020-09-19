@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+   <title>Welcome to PSU Library</title>
+    <style>
+
+        body{
+            background-image: url("../images/libraryimage.jpg");
+            background-repeat:no-repeat;
+            background-size:cover;
+        }
+        @keyframes example {
+            0%   {opacity: 0;}
+            25%  {opacity: 0.5;}
+            50%  {opacity: 0;}
+            75%  {opacity: 0.5;}
+            100% {opacity: 0;}
+        }
+        .navbar{
+            background-color: black;
+            color: white;
+            font-family: monospace;
+            border-radius: 5px;
+            text-align: center;
+            padding: 20px;
+            font-size: 30px;
+            animation-name: example;
+           animation-duration: 3s;
+            animation-iteration-count: infinite;
+        }
+        #head{
+            text-align: center;
+            font-family: monospace;
+            color: white;
+            font-size:50px;
+            text-shadow: 2px 2px 2px black;
+        }
+        #lForm{
+            padding: 20px;
+            font-family: monospace;
+            color: white;
+        }
+        .col-sm-1{
+            margin-left: 50px;
+        }
+
+        .col-sm-2{
+            margin-left: 30px;
+        }
+
+        .col-sm-3{
+            margin-left: 50px;
+        }
+        #bName{
+            border-radius: 10px;;
+        }
+        .form-group{
+            border-radius: 10px;
+        }
+        .col-sm-10{
+            padding: 10px;
+        }
+        #bAuthor{
+            border-radius: 10px;
+        }
+        .btn-primary{
+            margin-left: 50px;
+            border-radius: 5px;
+            background-color:firebrick;
+            color: white;
+        }
+        .btn-primary:hover {
+            background-color: blueviolet;
+        }
+        #tables h1{
+            color: white;
+            font-family: monospace;
+            text-shadow: 2px 2px 2px black;
+        }
+        .table-attr{
+            color: white;
+            font-family: monospace;
+        }
+
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <a class="nav-heading"> PSU LIBRARY</a>
+</nav>
+
+<div class="container my-3">
+    <h1 id="head"> Welcome to PSU Library</h1>
+    <hr>
+    <form id="lForm">
+        <div class="form-group">
+            <label for="bName" class="col-sm-1 ">Name</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="bName" placeholder="Book Name">
+            </div>
+        </div>
+        <fieldset class="form-group">
+            <div class="row">
+                <legend class="col-sm-2">Type</legend>
+                <div class="col-sm-10">
+                    <div class="form-check">
+                        <input class="form-check" type="radio" name="type" id="fiction" value="fiction" checked>
+                        <label class="form-check" for="fiction">Fiction</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check" type="radio" name="type" id="programming" value="programming">
+                        <label class="form-check" for="programming">Computer Programming</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check" type="radio" name="type" id="sports" value="sports">
+                        <label class="form-check" for="sports"> SPORTS </label>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+
+        <div class="form-group row">
+            <label for="bAuthor" class="col-sm-3">Author</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="bAuthor" placeholder="Author">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="btncl">
+                <button type="submit" class="btn btn-primary">ADD</button>
+            </div>
+        </div>
+    </form>
+
+    <div id="tables">
+        <h1>Your books</h1>
+
+        <table class="table-attr">
+            <thead>
+            <tr>
+                <th scope="col">NAME</th>
+                <th scope="col">AUTHOR</th>
+                <th scope="col">TYPE</th>
+            </tr>
+            </thead>
+            <tbody id='tableBody'></tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    function Books(name,type,author) {
+        this.name = name;
+        this.type = type;
+        this.author = author;
+    }
+
+
+    function DisplayBook() {
+
+    }
+    DisplayBook.prototype.add = function (newbook) {
+        tableBody = document.getElementById('tableBody');
+        let tableRows = `<tr>
+                        <td>${newbook.name}</td>
+                        <td>${newbook.author}</td>
+                        <td>${newbook.type}</td>
+                    </tr>`;
+        tableBody.innerHTML += tableRows;
+    }
+
+
+
+    DisplayBook.prototype.clear = function () {
+        let lForm = document.getElementById('lForm');
+        lForm.reset();
+    }
+
+    DisplayBook.prototype.validate = function (newbook) {
+        if (newbook.author.length < 4 || newbook.name.length <6 ) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+
+
+    let lForm = document.getElementById('lForm');
+    lForm.addEventListener('submit', libraryFSubmit);
+
+    function libraryFSubmit(e) {
+        e.preventDefault();
+        let name = document.getElementById('bName').value;
+        let author = document.getElementById('bAuthor').value;
+        let type;
+        let fiction = document.getElementById('fiction');
+        let sports = document.getElementById('sports');
+        let programming = document.getElementById('programming');
+
+
+        if (fiction.checked) {
+            type = fiction.value;
+        }  else if (programming.checked)
+        {
+            type = programming.value;
+        }
+        else if (sports.checked) {
+            type = sports.value;
+        }
+
+        let newbook = new Books(name,type,author);
+        console.log(newbook);
+
+        let display = new DisplayBook();
+
+        if (display.validate(newbook)) {
+
+            display.add(newbook);
+            display.clear();
+        }
+
+    }
+
+</script>
+</body>
+</html>

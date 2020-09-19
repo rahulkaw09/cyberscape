@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Document</title>
+    <style>
+
+        body{
+            background-image:url("../images/jordan.jpeg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        #conta1 {
+            color: white;
+            margin-left: 100px;
+            margin-top: 70px;
+            font-size: 30px ;
+            font-family: monospace;
+        }
+        .formcontainer{
+            text-align: center;
+            margin-top: 100px;
+        }
+        @keyframes animateslot {
+            0%   {opacity: 0;}
+            25%  {opacity: 0.5;}
+            50%  {opacity: 0;}
+            75%  {opacity: 0.5;}
+            100% {opacity: 0;}
+        }
+        #setalarm{
+            color: white;
+            font-size: xx-large;
+            animation-name: animateslot;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            margin-top: -20px;
+            font-family: monospace;
+        }
+
+
+        #aSubmit{
+            margin-left: 505px;
+            margin-top: 50px;
+
+
+        }
+        #aSubmit:hover{
+            color: black;
+            background-color: yellow;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <div id="conta1"></div>
+        <form>
+            <div class="formcontainer">
+                <label for="alarm" id="setalarm">SET TIMER</label>
+                <input type="text" class="form-control" id="alarm" name="alarm" placeholder="Enter Alarm time in yyyy-mm-dd hh:mm:ss">
+            </div>
+            <button id="aSubmit" type="submit" class="btn btn-primary">Set Alarm</button>
+        </form>
+</div>
+<script src="alarmjs.js"></script>
+</html>
