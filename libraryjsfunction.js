@@ -1,4 +1,4 @@
-function Books(name,type,author) {
+function Books(name,type,author){
     this.name = name;
     this.type = type;
     this.author = author;
@@ -28,10 +28,9 @@ DisplayBook.prototype.clear = function () {
 DisplayBook.prototype.validate = function (newbook) {
     if (newbook.author.length < 2 || newbook.name.length <2 ) {
         return false;
-    }
-    else {
+    }else {
         return true;
-    }
+        }
 }
 
 

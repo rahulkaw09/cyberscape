@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            background-image: url("books.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        #calculate_box {
+            border: 10px solid whitesmoke;
+            border-radius: 15px 0px 15px 0px;
+            padding: 10px;
+        }
+        h1 {
+            color: white;
+            font-family: monospace;
+            margin-left: 680px;
+        }
+        #calculate_box2{
+            margin-left: 700px;
+            margin-top: 50px;
+        }
+        #fine_rs{
+            border-radius: 5px 0px 5px 0px;
+            border: 3px solid red;
+        }
+        #cal_fine{
+            margin-top: 20px;
+            margin-left: 40px;
+            font-family: monospace;
+            border-radius: 2px 2px 2px 2px;
+            border: 1px solid white;
+        }
+
+        #fine_result{
+            color: white;
+            margin-top: 80px;
+            font-size: 280px;
+            margin-left: 630px;
+        }
+
+    </style>
+</head>
+<body onload="start_Timers();" onmousemove="reset_Timers();">
+<div id="calculate_box">
+    <h1> FINE CALCULATOR</h1>
+</div>
+<div id = calculate_box2>
+    <input class="fine_rs" id ="fine_rs" placeholder="enter number of days" type="text"><br>
+    <button id="cal_fine">calculate</button>
+</div>
+<div id="fine_result"></div>
+<script src="fine.js" defer></script>
+<script src="sessiontimeout.js" defer></script>
+</body>
+</html>

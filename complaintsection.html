@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Complaint Section</title>
+    <style>
+        body {
+            background-image: url("books.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: white;
+            font-family: monospace;
+        }
+        #addComp{
+            border: 4px solid green;
+            border-radius: 10px 0px 10px 0px;
+        }
+
+    </style>
+</head>
+
+<body onload="start_Timers();" onmousemove="reset_Timers();">
+<div>
+    <h1>Complaint section</h1>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Add a Complaint</h5>
+            <div class="form-group">
+                <textarea id="addComp" rows="3"></textarea>
+            </div>
+            <button id="addB">Add Complaint</button>
+        </div>
+    </div>
+    <hr>
+    <h1>Your Complaints</h1>
+    <hr>
+    <div id="comPlaints" class="row container-fluid"> </div>
+</div>
+<script src="complaintsec.js" defer></script>
+<script src="sessiontimeout.js" defer></script>
+</body>
+
+</html>

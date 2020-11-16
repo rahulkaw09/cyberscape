@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+
+      body{
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        background-image: url("books.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .login-cont{
+        width: 280px;
+        position: absolute;
+        transform: translate(-50%,-50%);
+        color: white;
+        top: 50%;
+        left: 50%;
+      }
+      .login-cont h1{
+        float: left;
+        border-bottom: 6px solid yellow;
+        margin-bottom: 50px;
+        font-size: 40px;
+        padding: 13px 0;
+      }
+      .textbox_area{
+        width: 100%;
+        overflow: hidden;
+        font-size: 20px;
+        padding: 8px 0;
+        margin: 8px 0;
+        border-bottom: 1px solid yellow;
+      }
+      .textbox_area i{
+        width: 26px;
+        float: left;
+        text-align: center;
+      }
+      .textbox_area input{
+
+        color: white;
+        font-size: 18px;
+        width: 80%;
+        border: none;
+        outline: none;
+        background: none;
+        float: left;
+        margin: 0 10px;
+      }
+      .captcha_box {
+        border: none;
+        color: white;
+        font-size: 18px;
+        width: 80%;
+        margin-left: 110px;
+        outline: none;
+        background: none;
+        opacity: 0.5;
+      }
+      .btn-login{
+        width: 100%;
+        background: none;
+        color: white;
+        padding: 5px;
+        font-size: 18px;
+        border: 2px solid yellow;
+        cursor: pointer;
+        margin: 12px 0;
+      }
+
+    </style>
+  </head>
+  <body>
+<div class="login-cont">
+  <h1>PSU-Login</h1>
+  <div class="textbox_area">
+    <i class="fa_User"></i>
+    <input type="text" placeholder="Username" id="Usern">
+  </div>
+
+  <div class="textbox_area">
+    <i class="fas_Pass"></i>
+    <input type="password" placeholder="Password" id="Pass">
+  </div>
+
+  <div class="captcha_box" id="captcha_box"></div>
+
+  <div class="textbox_area">
+    <i class="fa_captcha"></i>
+    <input type="text" placeholder="Captcha" id="Captchab">
+  </div>
+
+  <input type="button" class="btn-login" id="btn-login" value="Login">
+</div>
+<script src="captcha.js"></script>
+
+  </body>
+</html>

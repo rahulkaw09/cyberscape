@@ -3,11 +3,11 @@
 
 <head>
     <meta charset="utf-8">
-   <title>Welcome to PSU Library</title>
+    <title>Welcome to PSU Library</title>
     <style>
 
         body{
-            background-image: url("libraryimage.jpg");
+            background-image: url("books.jpg");
             background-repeat:no-repeat;
             background-size:cover;
         }
@@ -27,7 +27,7 @@
             padding: 20px;
             font-size: 30px;
             animation-name: example;
-           animation-duration: 3s;
+            animation-duration: 3s;
             animation-iteration-count: infinite;
         }
         #head{
@@ -83,6 +83,31 @@
             color: white;
             font-family: monospace;
         }
+        #Comp-btn{
+            border-radius: 10px;
+            background:transparent;
+            color: white;
+            font-family: "SansSerif";
+            font-size: 16px;
+            border:1px white solid;
+            margin-top: 5px;
+            position: fixed;
+            right: 170px;
+            top:25px;
+        }
+
+        #fine-btn{
+            border-radius: 10px;
+            background:transparent;
+            color: white;
+            font-family: "SansSerif";
+            font-size: 16px;
+            border:1px white solid;
+            margin-top: 5px;
+            position: fixed;
+            right: 110px;
+            top:25px;
+        }
         #logout-btn{
             border-radius: 10px;
             background:transparent;
@@ -108,15 +133,16 @@
 
     </style>
 </head>
-<body>
+<body onload="start_Timers();" onmousemove="reset_Timers();">
 
 <nav class="navbar">
     <a class="nav-heading"> PSU LIBRARY</a>
 </nav>
-
+<a href="complaintsection.html"><button id="Comp-btn"> COMPLAINT </button></a>
+<a href="finecal.html"><button id="fine-btn" >FINE</button></a>
 <button id="logout-btn" >LOGOUT</button>
 
-<div class="container my-3">
+<div class="container-m">
     <h1 id="head"> Welcome to PSU Library</h1>
     <hr>
     <form id="lForm">
@@ -177,6 +203,7 @@
 </div>
 
 <script src="libraryjsfunction.js" defer></script>
-<script src="logoutbuttonlibrary.js" defer></script>
+<script src="liblogout.js" defer></script>
+<script src="sessiontimeout.js" defer></script>
 </body>
 </html>
